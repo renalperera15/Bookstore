@@ -1,10 +1,20 @@
 package com.bookstore.resources;
 
-import com.bookstore.models.Book;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
-import java.util.*;
+import com.bookstore.models.Book;
+
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 @Path("/books")
 @Produces(MediaType.APPLICATION_JSON)
@@ -33,17 +43,5 @@ public class BookResource {
             throw new WebApplicationException("Book not found", Response.Status.NOT_FOUND);
         }
         return Response.ok(book).build();
-    }
-
-    public static Map<Integer, Book> getBooks() {
-        return books;
-    }
-
-    public static int getBookIdCounter() {
-        return bookIdCounter;
-    }
-
-    public static void setBookIdCounter(int bookIdCounter) {
-        BookResource.bookIdCounter = bookIdCounter;
     }
 }
