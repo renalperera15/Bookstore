@@ -34,16 +34,3 @@ public class BookResource {
         }
         return Response.ok(book).build();
     }
-
-    public static Map<Integer, Book> getBooks() {
-        return books;
-    }
-
-    public static int getBookIdCounter() {
-        return bookIdCounter;
-    }
-
-    public static void setBookIdCounter(int bookIdCounter) {
-        BookResource.bookIdCounter = bookIdCounter;
-    }
-}
