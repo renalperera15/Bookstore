@@ -34,4 +34,3 @@ public class BookResource {
         }
         return Response.ok(book).build();
     }
-}

@@ -12,4 +12,8 @@ public class Author {
     }
 
     // Getters and Setters
+
+    public int getId() {
+        return id;
+    }
 }
