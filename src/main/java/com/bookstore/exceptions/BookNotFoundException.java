@@ -1,6 +1,3 @@
-java
-Copy
-Edit
 package com.bookstore.exceptions;
 
 public class BookNotFoundException extends RuntimeException {
