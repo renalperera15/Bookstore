@@ -25,7 +25,7 @@ public class CartResource {
     @POST
     @Path("/items")
     public Response addToCart(@PathParam("customerId") int customerId, @QueryParam("bookId") int bookId, @QueryParam("quantity") int quantity) {
-        carts.computeIfAbsent(customerId, k -> new Cart(customerId)).addItem(bookId, quantity);
+        carts.computeIfAbsent(customerId, Cart::new).addItem(bookId, quantity);
         return Response.ok().entity("Item added to cart").build();
     }
 
