@@ -17,7 +17,7 @@ import java.util.List;
 public class OrderResource {
 
     @POST
-    public Response createOrder(@PathParam("customerId") int customerId) {
+    public Response createOrder(@PathParam("customerId") int customerId) throws CustomerNotFoundException {
         Customer customer = DataStore.getCustomer(customerId);
         if (customer == null) {
             throw new CustomerNotFoundException("Customer not found with ID: " + customerId);
