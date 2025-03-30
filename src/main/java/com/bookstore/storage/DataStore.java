@@ -21,5 +21,9 @@ public class DataStore {
     public static Customer getCustomer(int id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    public static boolean removeCustomer(int id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
 
