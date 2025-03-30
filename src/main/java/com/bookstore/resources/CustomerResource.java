@@ -28,7 +28,7 @@ public class CustomerResource {
 
     @GET
     @Path("/{id}")
-    public Response getCustomer(@PathParam("id") int id) {
+    public Response getCustomer(@PathParam("id") int id) throws CustomerNotFoundException {
         Customer customer = DataStore.getCustomer(id);
         if (customer == null) {
             throw new CustomerNotFoundException("Customer not found with ID: " + id);
@@ -38,7 +38,7 @@ public class CustomerResource {
 
     @PUT
     @Path("/{id}")
-    public Response updateCustomer(@PathParam("id") int id, Customer updatedCustomer) {
+    public Response updateCustomer(@PathParam("id") int id, Customer updatedCustomer) throws CustomerNotFoundException {
         Customer customer = DataStore.getCustomer(id);
         if (customer == null) {
             throw new CustomerNotFoundException("Customer not found with ID: " + id);
@@ -50,7 +50,7 @@ public class CustomerResource {
 
     @DELETE
     @Path("/{id}")
-    public Response deleteCustomer(@PathParam("id") int id) {
+    public Response deleteCustomer(@PathParam("id") int id) throws CustomerNotFoundException {
         boolean removed = DataStore.removeCustomer(id);
         if (!removed) {
             throw new CustomerNotFoundException("Customer not found with ID: " + id);
