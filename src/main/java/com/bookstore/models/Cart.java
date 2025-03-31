@@ -19,6 +19,21 @@ public class Cart {
         items.remove(bookId);
     }
 
+    /**
+     * Returns the items in the cart.
+     * @return A map of book IDs to their quantities.
+     */
+    public Map<Integer, Integer> getItems() {
+        return items;
+    }
+
+    /**
+     * Clears all items from the cart.
+     */
+    public void clear() {
+        items.clear();
+    }
+
     // Getters and Setters
 
     public int getCustomerId() {
@@ -28,4 +43,5 @@ public class Cart {
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
+    
 }
