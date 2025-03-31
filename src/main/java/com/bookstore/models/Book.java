@@ -77,4 +77,8 @@ public class Book {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public int getAuthorId() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
