@@ -1,12 +1,13 @@
 package com.bookstore.storage;
 
-import com.bookstore.models.Author;
-import com.bookstore.models.Book;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
+import com.bookstore.models.Author;
+import com.bookstore.models.Book;
 import com.bookstore.models.Customer;
+import com.bookstore.models.Order;
 
 public class DataStore {
     private static final List<Author> authors = new ArrayList<>();
@@ -58,6 +59,22 @@ public class DataStore {
     }
 
     public static List<Customer> getAllCustomers() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static void addCustomer(Customer customer) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static void addOrder(Order order) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static List<Order> getOrdersByCustomer(int customerId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static Order getOrder(int orderId) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
