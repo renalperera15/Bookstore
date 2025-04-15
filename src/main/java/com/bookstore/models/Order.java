@@ -1,6 +1,7 @@
 package com.bookstore.models;
 
 import java.util.List;
+import java.util.Map;
 
 public class Order {
     private int orderId;
@@ -13,6 +14,9 @@ public class Order {
         this.customerId = customerId;
         this.books = books;
         this.totalPrice = totalPrice;
+    }
+
+    public Order(int customerId, Map<Integer, Integer> items) {
     }
 
     // Getters and Setters

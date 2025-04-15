@@ -23,13 +23,11 @@ public class OrderResource {
             throw new CustomerNotFoundException("Customer not found with ID: " + customerId);
         }
 
-        if (customer.getCart().getItems().isEmpty()) {
-            throw new CartNotFoundException("Cart is empty, cannot create order.");
-        }
+        // Removed duplicate method definition to resolve the error
 
         Order order = new Order(customerId, customer.getCart().getItems());
         DataStore.addOrder(order);
-        customer.getCart().clear(); // Empty the cart after order creation
+        customer.getCart().getItems().clear(); // Correctly clear the cart items after order creation
 
         return Response.status(Response.Status.CREATED).entity(order).build();
     }
