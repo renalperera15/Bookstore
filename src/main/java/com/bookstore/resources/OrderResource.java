@@ -1,15 +1,20 @@
 package com.bookstore.resources;
 
-import com.bookstore.models.Order;
-import com.bookstore.models.Customer;
-import com.bookstore.storage.DataStore;
-import com.bookstore.exceptions.CustomerNotFoundException;
-import com.bookstore.exceptions.CartNotFoundException;
+import java.util.List;
 
-import jakarta.ws.rs.*;
+import com.bookstore.exceptions.CustomerNotFoundException;
+import com.bookstore.models.Customer;
+import com.bookstore.models.Order;
+import com.bookstore.storage.DataStore;
+
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import java.util.List;
 
 @Path("/customers/{customerId}/orders")
 @Produces(MediaType.APPLICATION_JSON)
