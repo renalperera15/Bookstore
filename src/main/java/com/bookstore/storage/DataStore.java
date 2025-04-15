@@ -1,18 +1,17 @@
 package com.bookstore.storage;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.bookstore.models.*;
 
-import com.bookstore.models.Author;
-import com.bookstore.models.Book;
-import com.bookstore.models.Customer;
-import com.bookstore.models.Order;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DataStore {
     private static final List<Author> authors = new ArrayList<>();
     private static final List<Book> books = new ArrayList<>();
+    private static final List<Customer> customers = new ArrayList<>();
+    private static final List<Order> orders = new ArrayList<>();
 
+    // ==== Authors ====
     public static void addAuthor(Author author) {
         authors.add(author);
     }
@@ -22,18 +21,13 @@ public class DataStore {
     }
 
     public static Author getAuthor(int id) {
-        return authors.stream()
-                .filter(author -> author.getId() == id)
-                .findFirst()
-                .orElse(null);
+        return authors.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
     }
 
     public static boolean removeAuthor(int id) {
         Author author = getAuthor(id);
         if (author != null) {
-            // Remove all books by this author
             books.removeIf(book -> book.getAuthorId() == id);
-            // Remove the author
             authors.remove(author);
             return true;
         }
@@ -41,40 +35,50 @@ public class DataStore {
     }
 
     public static List<Book> getBooksByAuthor(int authorId) {
-        return books.stream()
-                .filter(book -> book.getAuthorId() == authorId)
-                .collect(Collectors.toList());
+        return books.stream().filter(b -> b.getAuthorId() == authorId).collect(Collectors.toList());
     }
 
+    // ==== Books ====
     public static void addBook(Book book) {
         books.add(book);
     }
 
-    public static boolean removeCustomer(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public static Book getBook(int id) {
+        return books.stream().filter(b -> b.getId() == id).findFirst().orElse(null);
     }
 
-    public static Customer getCustomer(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    // ==== Customers ====
+    public static void addCustomer(Customer customer) {
+        customers.add(customer);
     }
 
     public static List<Customer> getAllCustomers() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return new ArrayList<>(customers);
     }
 
-    public static void addCustomer(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public static Customer getCustomer(int id) {
+        return customers.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
     }
 
+    public static boolean removeCustomer(int id) {
+        Customer customer = getCustomer(id);
+        if (customer != null) {
+            customers.remove(customer);
+            return true;
+        }
+        return false;
+    }
+
+    // ==== Orders ====
     public static void addOrder(Order order) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        orders.add(order);
     }
 
     public static List<Order> getOrdersByCustomer(int customerId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return orders.stream().filter(o -> o.getCustomerId() == customerId).collect(Collectors.toList());
     }
 
     public static Order getOrder(int orderId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return orders.stream().filter(o -> o.getOrderId() == orderId).findFirst().orElse(null);
     }
 }
