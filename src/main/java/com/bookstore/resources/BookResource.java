@@ -32,8 +32,10 @@ public class BookResource {
 
     @GET
     public Collection<Book> getAllBooks() {
+        System.out.println("Books size: " + books.size());
         return books.values();
     }
+
 
     @GET
     @Path("/{id}")
