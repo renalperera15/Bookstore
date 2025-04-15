@@ -1,26 +1,28 @@
 package com.bookstore.models;
 
-
 public class Book {
     private int id;
     private String title;
-    private String author;
+    private int authorId;  // Reference to the author's ID
     private String isbn;
     private int publicationYear;
     private double price;
     private int stock;
 
-    public Book(int id, String title, String author, String isbn, int publicationYear, double price, int stock) {
+    public Book() {
+    }
+
+    public Book(int id, String title, int authorId, String isbn, int publicationYear, double price, int stock) {
         this.id = id;
         this.title = title;
-        this.author = author;
+        this.authorId = authorId;
         this.isbn = isbn;
         this.publicationYear = publicationYear;
         this.price = price;
         this.stock = stock;
     }
 
-    // Getters and Setters
+    // Getters and setters
 
     public int getId() {
         return id;
@@ -30,8 +32,20 @@ public class Book {
         this.id = id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 
     public String getIsbn() {
@@ -50,26 +64,6 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -78,7 +72,16 @@ public class Book {
         this.price = price;
     }
 
-    public int getAuthorId() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public int getAuthor() {
+        return authorId;
     }
 }
+
