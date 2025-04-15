@@ -6,7 +6,6 @@ import java.net.URI;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
-import com.sun.net.httpserver.HttpServer;
 
 public class BookstoreApplication {
 
