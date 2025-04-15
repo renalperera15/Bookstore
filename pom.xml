@@ -20,7 +20,7 @@
     <dependency>
         <groupId>org.glassfish.jersey.containers</groupId>
         <artifactId>jersey-container-grizzly2-http</artifactId>
-        <version>3.1.2</version>
+        <version>3.1.2/version>
     </dependency>
 
     <dependency>
@@ -35,6 +35,13 @@
         <artifactId>jakarta.ws.rs-api</artifactId>
         <version>3.1.0</version>
     </dependency>
+
+    <dependency>
+        <groupId>org.glassfish.jersey.media</groupId>
+        <artifactId>jersey-media-json-jackson</artifactId>
+        <version>3.1.3</version> <!-- or match your Jersey version -->
+    </dependency>
+
 </dependencies>
 
 </project>
