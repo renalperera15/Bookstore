@@ -48,5 +48,6 @@ public class Customer {
     }
 
     public Cart getCart() {
+        return null;
     }
 }
