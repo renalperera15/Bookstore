@@ -47,7 +47,6 @@ public class Customer {
         this.email = email;
     }
 
-    public Object getCart() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Cart getCart() {
     }
 }
