@@ -53,19 +53,22 @@ public class AuthorResource {
     @PUT
     @Path("/{id}")
     public Response updateAuthor(@PathParam("id") int id, Author updatedAuthor) {
-        if (updatedAuthor == null) {
-            return Response.status(Response.Status.BAD_REQUEST).entity("Updated author data is missing.").build();
-        }
+        System.out.println("Updating author with ID: " + id);
+        System.out.println("Received author data: " + updatedAuthor);
 
-        Author author = DataStore.getAuthor(id);
-        if (author == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("Author not found with ID: " + id).build();
-        }
-
-        author.setName(updatedAuthor.getName());
-        author.setBiography(updatedAuthor.getBiography());
-        return Response.ok(author).build();
+    if (updatedAuthor == null) {
+        return Response.status(Response.Status.BAD_REQUEST).entity("Updated author data is missing.").build();
     }
+
+    Author author = DataStore.getAuthor(id);
+    if (author == null) {
+        return Response.status(Response.Status.NOT_FOUND).entity("Author not found with ID: " + id).build();
+    }
+
+    author.setName(updatedAuthor.getName());
+    author.setBiography(updatedAuthor.getBiography());
+    return Response.ok(author).build();
+}
 
     @DELETE
     @Path("/{id}")
