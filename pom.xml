@@ -29,6 +29,19 @@
         <version>3.1.2</version>
     </dependency>
 
+    <dependency>
+        <groupId>jakarta.json.bind</groupId>
+        <artifactId>jakarta.json.bind-api</artifactId>
+        <version>3.0.0</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.eclipse.parsson</groupId>
+        <artifactId>parsson</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+
+
     <!-- Jakarta WS-RS API -->
     <dependency>
         <groupId>jakarta.ws.rs</groupId>

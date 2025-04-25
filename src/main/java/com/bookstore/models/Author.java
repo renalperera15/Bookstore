@@ -5,6 +5,11 @@ public class Author {
     private String name;
     private String biography;
 
+    // ✅ No-argument constructor (required for JSON deserialization)
+    public Author() {
+    }
+
+    // All-argument constructor
     public Author(int id, String name, String biography) {
         this.id = id;
         this.name = name;
@@ -15,6 +20,10 @@ public class Author {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -31,9 +40,5 @@ public class Author {
 
     public void setBiography(String biography) {
         this.biography = biography;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
