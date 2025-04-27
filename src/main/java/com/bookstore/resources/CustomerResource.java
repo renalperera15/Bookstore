@@ -4,9 +4,9 @@ import com.bookstore.models.Customer;
 import com.bookstore.storage.DataStore;
 import com.bookstore.exceptions.CustomerNotFoundException;
 
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/customers")
