@@ -14,7 +14,7 @@ public class DataStore {
     private static final List<Book> books = new ArrayList<>();
     private static final List<Customer> customers = new ArrayList<>();
     private static final List<Order> orders = new ArrayList<>();
-    
+
     private static int authorIdCounter = 1;
     private static int bookIdCounter = 1;
     private static int customerIdCounter = 1;

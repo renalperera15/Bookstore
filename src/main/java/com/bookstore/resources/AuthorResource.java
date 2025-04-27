@@ -6,16 +6,16 @@ import com.bookstore.models.Author;
 import com.bookstore.models.Book;
 import com.bookstore.storage.DataStore;
 
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("/authors")
 @Produces(MediaType.APPLICATION_JSON)
@@ -56,19 +56,19 @@ public class AuthorResource {
         System.out.println("Updating author with ID: " + id);
         System.out.println("Received author data: " + updatedAuthor);
 
-    if (updatedAuthor == null) {
-        return Response.status(Response.Status.BAD_REQUEST).entity("Updated author data is missing.").build();
-    }
+        if (updatedAuthor == null) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Updated author data is missing.").build();
+        }
 
-    Author author = DataStore.getAuthor(id);
-    if (author == null) {
-        return Response.status(Response.Status.NOT_FOUND).entity("Author not found with ID: " + id).build();
-    }
+        Author author = DataStore.getAuthor(id);
+        if (author == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Author not found with ID: " + id).build();
+        }
 
-    author.setName(updatedAuthor.getName());
-    author.setBiography(updatedAuthor.getBiography());
-    return Response.ok(author).build();
-}
+        author.setName(updatedAuthor.getName());
+        author.setBiography(updatedAuthor.getBiography());
+        return Response.ok(author).build();
+    }
 
     @DELETE
     @Path("/{id}")
